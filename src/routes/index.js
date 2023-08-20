@@ -3,24 +3,25 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import HeaderOnly from '~/components/Layout/HeaderOnly';
-const publicRoutes=[
+
+const publicRoutes = [
     {
-        path:'/',
-        component:Home
+        path: '/',
+        component: Home,
     },
     {
-        path:'/following',
-        component:Following
+        path: '/following',
+        component: Following,
     },
     {
-        path:'/profile',
-        component:Profile
+        path: '/upload',
+        component: Upload,
+        layout: HeaderOnly,
     },
     {
-        path:'/upload',
-        component:Upload,
-        layout: HeaderOnly
-    }
+        path: '/:nickname',
+        component: Profile,
+    },
 ];
-const privateRoutes=[];
-export {publicRoutes, privateRoutes}
+const privateRoutes = [];
+export { publicRoutes, privateRoutes };

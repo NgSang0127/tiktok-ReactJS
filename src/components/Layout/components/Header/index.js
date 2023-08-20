@@ -1,9 +1,7 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircleXmark,
-    faSpinner,
     faSignIn,
     faEllipsisVertical,
     faLanguage,
@@ -21,13 +19,12 @@ import '@icon/themify-icons/themify-icons.css';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images/index.js';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountList from '~/components/Layout/components/AccountList';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Search from '../Search';
 import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
-import { Inbox, Message, SearchIcon } from '~/components/Layout/components/Icons';
-import Image from '~/components/Layout/components/Image';
+import { Inbox, Message} from 'src/components/Icons';
+import Image from 'src/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -91,13 +88,7 @@ const USER_MENU = [
     },
 ];
 const Header = () => {
-    const [searchResults, setSearchResults] = useState([]);
     const currentUser = true;
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResults([1, 2, 3]);
-        }, 3000);
-    });
     const handleChange = (item) => {
         console.log(item);
     };
@@ -107,32 +98,7 @@ const Header = () => {
                 <div className={cx('logo')}>
                     <img src={images.logo} alt="Tiktok logo" />
                 </div>
-                <Headless
-                    interactive
-                    visible={searchResults.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountList></AccountList>
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input type="search" placeholder="Search accounts and videos" spellCheck={false} />
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark}></FontAwesomeIcon>
-                            {/*Icon clear*/}
-                        </button>
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner}></FontAwesomeIcon>
-                        {/*Loading*/}
-                        <button className={cx('search-btn')}>
-                            <SearchIcon></SearchIcon>
-                            {/*Icons search*/}
-                        </button>
-                    </div>
-                </Headless>
+                <Search></Search>
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
@@ -143,7 +109,7 @@ const Header = () => {
                             >
                                 Upload
                             </Button>
-                            <Tippy offset={[0,12]} delay={[0, 200]} content="Message" placement="bottom">
+                            <Tippy offset={[0, 12]} delay={[0, 200]} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <Message className={cx('icon-action')}></Message>
                                 </button>
@@ -165,10 +131,9 @@ const Header = () => {
                             </Button>
                         </>
                     )}
-                    <Menu items={currentUser ? USER_MENU : SETTING_ITEM} onChange={handleChange}>
+                    <Menu  items={currentUser ? USER_MENU : SETTING_ITEM} onChange={handleChange}>
                         {currentUser ? (
-                            <Image src={images.avatar} className={cx('user-avatar')} alt="Nguyen Cong Sang"
-                          />
+                            <Image src={images.avatar} className={cx('user-avatar')} alt="Nguyen Cong Sang" />
                         ) : (
                             <button className={cx('setting-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>

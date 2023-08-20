@@ -35,6 +35,7 @@ const Menu = ({ children, items = [] ,onChange=defaultFn}) => {
     };
     return (
         <Headless
+            hideOnClick="false"
             offset={[12,10]}
             delay={[0, 500]}
             interactive
