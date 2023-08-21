@@ -1,3 +1,7 @@
+import classNames from 'classnames/bind';
+import styles from './Icon.module.scss';
+const cx = classNames.bind(styles);
+
 export const Message = ({ width = '28px', height = '28px', className }) => (
     <svg
         className={className}
@@ -34,6 +38,9 @@ export const Inbox = ({ width = '34px', height = '34px', className }) => (
 );
 export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
+        className={cx({
+            [className]:className
+        })}
         width={width}
         data-e2e=""
         height={height}
@@ -48,4 +55,3 @@ export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) =
         ></path>
     </svg>
 );
-

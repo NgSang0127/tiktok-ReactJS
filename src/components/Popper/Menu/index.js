@@ -8,11 +8,9 @@ import MenuItem from '~/components/Popper/Menu/MenuItem';
 import MenuItem2 from '~/components/Popper/Menu/Header_Menu';
 
 const cx = classNames.bind(styles);
-const defaultFn=()=>{
+const defaultFn = () => {};
 
-}
-
-const Menu = ({ children, items = [] ,onChange=defaultFn}) => {
+const Menu = ({ children, items = [], onChange = defaultFn }) => {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItem = () => {
@@ -25,7 +23,7 @@ const Menu = ({ children, items = [] ,onChange=defaultFn}) => {
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
-                        }else{
+                        } else {
                             onChange(item);
                         }
                     }}
@@ -35,8 +33,9 @@ const Menu = ({ children, items = [] ,onChange=defaultFn}) => {
     };
     return (
         <Headless
+            visible
             hideOnClick="false"
-            offset={[12,10]}
+            offset={[12, 10]}
             delay={[0, 500]}
             interactive
             placement="bottom-end"
@@ -46,17 +45,16 @@ const Menu = ({ children, items = [] ,onChange=defaultFn}) => {
                         {history.length > 1 && (
                             <MenuItem2
                                 title="Languages"
-                                onBack={()=>{
-                                    setHistory(prev=>prev.slice(0,prev.length-1));
+                                onBack={() => {
+                                    setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
-
                             ></MenuItem2>
                         )}
-                        {renderItem()}
+                        <div className={cx('menu-body')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}
-            onHide={()=>setHistory(prev=>prev.slice(0,1))}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
         >
             {children}
         </Headless>

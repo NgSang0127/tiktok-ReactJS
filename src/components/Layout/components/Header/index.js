@@ -23,8 +23,10 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Search from '../Search';
 import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
-import { Inbox, Message} from 'src/components/Icons';
+import { Inbox, Message } from 'src/components/Icons';
 import Image from 'src/components/Image';
+import { Link } from 'react-router-dom';
+import routeConfig from '~/config/routes'
 
 const cx = classNames.bind(styles);
 
@@ -39,6 +41,76 @@ const SETTING_ITEM = [
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'ar',
+                    title: 'Arabic',
+                },
+                {
+                    type: 'language',
+                    code: 'es',
+                    title: 'Spanish',
+                },
+                {
+                    type: 'language',
+                    code: 'fr',
+                    title: 'French',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tieng Viet',
                 },
                 {
                     type: 'language',
@@ -96,7 +168,9 @@ const Header = () => {
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok logo" />
+                    <Link to={routeConfig.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok logo" />
+                    </Link>
                 </div>
                 <Search></Search>
                 <div className={cx('action')}>
@@ -131,7 +205,7 @@ const Header = () => {
                             </Button>
                         </>
                     )}
-                    <Menu  items={currentUser ? USER_MENU : SETTING_ITEM} onChange={handleChange}>
+                    <Menu items={currentUser ? USER_MENU : SETTING_ITEM} onChange={handleChange}>
                         {currentUser ? (
                             <Image src={images.avatar} className={cx('user-avatar')} alt="Nguyen Cong Sang" />
                         ) : (

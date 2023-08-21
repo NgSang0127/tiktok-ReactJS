@@ -22,12 +22,18 @@
     border-top: 1px solid rgba(22,24,35,0.15);
   }
 }
+
+.menu-body{
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
 //Menu Item 2
 .header{
   display:flex;
   position: relative;
   height: 50px;
   margin-top:-8px;
+  flex-shrink: 0;
 }
 .back-btn{
   width: 50px;
