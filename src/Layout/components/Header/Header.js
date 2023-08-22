@@ -18,15 +18,15 @@ import 'tippy.js/dist/tippy.css';
 import '@icon/themify-icons/themify-icons.css';
 
 import styles from './Header.module.scss';
-import images from '~/assets/images/index.js';
-import Button from '~/components/Button';
-import Menu from '~/components/Popper/Menu';
-import Search from '../Search';
+import images from '~/assets/images';
+import Button from '~/components/Button/Button';
+import Menu from '~/components/Popper/Menu/Menu';
+import Search from '../Search/Search';
 import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
-import { Inbox, Message } from 'src/components/Icons';
-import Image from 'src/components/Image';
+import { Inbox, Message } from '~/components/Icons/Icons';
+import Image from '~/components/Image/Images';
 import { Link } from 'react-router-dom';
-import routeConfig from '~/config/routes'
+import config from "~/config/export";
 
 const cx = classNames.bind(styles);
 
@@ -168,7 +168,7 @@ const Header = () => {
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
                 <div className={cx('logo')}>
-                    <Link to={routeConfig.home} className={cx('logo-link')}>
+                    <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="Tiktok logo" />
                     </Link>
                 </div>

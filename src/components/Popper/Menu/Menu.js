@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Headless from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper/export';
 
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
@@ -10,7 +11,7 @@ import MenuItem2 from '~/components/Popper/Menu/Header_Menu';
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
 
-const Menu = ({ children, items = [], onChange = defaultFn }) => {
+const Menu = ({ children, items = [], hideOnClick = false, onChange = defaultFn }) => {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItem = () => {
@@ -31,10 +32,15 @@ const Menu = ({ children, items = [], onChange = defaultFn }) => {
             );
         });
     };
+    const handleResetToFirstItem = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+    const handleBackMenu = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1));
+    };
     return (
         <Headless
-            visible
-            hideOnClick="false"
+            hideOnClick={hideOnClick}
             offset={[12, 10]}
             delay={[0, 500]}
             interactive
@@ -42,23 +48,21 @@ const Menu = ({ children, items = [], onChange = defaultFn }) => {
             render={(attrs) => (
                 <div className={cx('wrapper')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('setting-wrapper')}>
-                        {history.length > 1 && (
-                            <MenuItem2
-                                title="Languages"
-                                onBack={() => {
-                                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                                }}
-                            ></MenuItem2>
-                        )}
+                        {history.length > 1 && <MenuItem2 title={current.title} onBack={handleBackMenu}></MenuItem2>}
                         <div className={cx('menu-body')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}
-            onHide={() => setHistory((prev) => prev.slice(0, 1))}
+            onHide={handleResetToFirstItem}
         >
             {children}
         </Headless>
     );
 };
-
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    hideOnClick: PropTypes.bool,
+    onChange: PropTypes.func,
+};
 export default Menu;

@@ -1,4 +1,4 @@
-import Header from '~/components/Layout/components/Header';
+import Header from '~/Layout/components/Header/Header';
 import React from 'react';
 
 const HeaderOnly = ({children}) => {

@@ -42,7 +42,7 @@
 }
 .primary{
   background-color:var(--primary);
-  color:var(--white);
+  color:var(--white) !important;
   border-color:var(--primary);
 
   &:hover{

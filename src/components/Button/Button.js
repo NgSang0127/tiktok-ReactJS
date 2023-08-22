@@ -2,8 +2,10 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
+import PropTypes from "prop-types";
 
 const cx = classNames.bind(styles);
+
 const Button = ({
     to,
     leftIcon,
@@ -22,7 +24,8 @@ const Button = ({
     ...passProps
 }) => {
     let Component = 'button';
-    const props = {//props ở đây là để phân biệt với những classes scss ý là props css sẽ định nghĩa giá trị boolean
+    const props = {
+        //props ở đây là để phân biệt với những classes scss ý là props css sẽ định nghĩa giá trị boolean
         //còn props của thẻ là khác giá trị boolean như onClick ,...
         onClick,
         ...passProps,
@@ -60,5 +63,21 @@ const Button = ({
         </Component>
     );
 };
+Button.prototype={
+    to:PropTypes.string,
+    leftIcon:PropTypes.node,
+    rightIcon:PropTypes.node,
+    href:PropTypes.string,
+    className:PropTypes.string,
+    children:PropTypes.node.isRequired,
+    primary:PropTypes.bool,
+    rounded:PropTypes.bool,
+    text:PropTypes.bool,
+    outline:PropTypes.bool,
+    disabled:PropTypes.bool,
+    small:PropTypes.bool,
+    large:PropTypes.string,
+    onClick:PropTypes.func,
+}
 
 export default Button;
