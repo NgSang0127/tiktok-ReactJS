@@ -1,1 +1,1 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WUXDzLx6jfk?si=qsXVCNweTKUT69T9" title="Tik Tok" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+{@youtube: [https://www.youtube.com/watch?v=HndN6P9ke6U](https://youtu.be/WUXDzLx6jfk?si=1UrVZCl1pDMy5dk2)https://youtu.be/WUXDzLx6jfk?si=1UrVZCl1pDMy5dk2}
