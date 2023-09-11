@@ -1,0 +1,81 @@
+.wrapper{
+padding-bottom:16px;
+  border-bottom:1px solid rgba(22, 24, 35, .12);
+}
+.label{
+  position:relative;
+  padding: 16px  8px 0 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.093px;
+  color: rgba(22, 24, 35, .75);
+  &::after{
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 4px;
+    height: 1px;
+    background: rgba(22, 24, 35, .12);
+    transform: scaleY(0.5);
+  }
+}
+.list-account-item{
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  border-radius: 4px;
+  transition: background 200ms ease-in-out 0s;
+  &:hover{
+    background: rgba(22, 24, 35, 0.03);
+  }
+}
+.avatar{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  object-fit:cover;
+}
+.item-info{
+  flex:1;
+  margin-left: 12px;
+}
+.nickname{
+  font-size:1.4rem;
+  color:#161823;
+}
+.user-name{
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.161px;
+  line-height: 15px;
+  max-width: 145px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.check-icon{
+  font-size:1.4rem;
+  color:#20d5ec;
+  margin-left: 4px;
+}
+.wrapper-see-more{
+  background-color:transparent;
+  margin-top:8px;
+  padding:0 8px;
+}
+.see-more{
+  cursor:pointer;
+  color: rgb(254, 44, 85);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.093px;
+}

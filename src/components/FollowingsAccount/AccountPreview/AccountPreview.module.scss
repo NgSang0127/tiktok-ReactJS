@@ -1,0 +1,60 @@
+.wrapper{
+  padding:20px;
+  width:320px;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 12px;
+}
+.avatar{
+  height: 44px;
+  width: 44px;
+  object-fit: cover;
+  border-radius:50%;
+}
+.item-info{
+  color: #161823;
+}
+.nickname{
+  font-size:1.8rem;
+}
+.check-icon{
+  font-size:1.4rem;
+  color:#20d5ec;
+  margin-left: 4px;
+}
+.user-name{
+  margin-top:2px;
+  font-size:1.4rem;
+  color: rgb(22, 24, 35);
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.093px;
+}
+.numbers{
+  margin-top: 8px;
+}
+.value{
+  margin-right:6px;
+}
+.label {
+color: #161823bf;
+
+  &:first-of-type{
+    margin-right:12px;
+  }
+}
+.button-follow{
+  padding:6px 0;
+}
+.description{
+  font-size: 1.4rem;
+  line-height: 18px;
+  letter-spacing: 0.093px;
+  font-weight:450;
+  padding-top:16px;
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
+  margin-top:16px;
+}
